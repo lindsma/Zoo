@@ -1,0 +1,26 @@
+*,
+*:after,
+*:before {
+  box-sizing: border-box; }
+
+body {
+  height: 100%;
+  background: lightblue; }
+
+div.container {
+  display: flex; }
+  div.container img.cloud {
+    width: 500px;
+    height: 200px;
+    margin: 0 auto;
+    align-self: center; }
+
+footer.grass {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-image: url("grass.png");
+  height: 300px; }
+
+/*# sourceMappingURL=main.css.map */
