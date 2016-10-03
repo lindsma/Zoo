@@ -13,14 +13,6 @@ $(document).ready(function() {
 
         Animal.prototype = {
 
-            // add to HTML
-            buildZoo: function() {
-
-
-
-            },
-
-
             // calculate age from DOB
 
             calcAge: function() {
@@ -92,11 +84,6 @@ $(document).ready(function() {
 
         function Animal(species, name, dob) {
 
-            // this.regions = {
-            //
-            //
-            // };
-
             // basic animal info setup
             this.info = {
                 species: species,
@@ -114,6 +101,12 @@ $(document).ready(function() {
                 if (this.info.species === "chicken") {
                     this.info.specialAbilities = this.info.specialAbilities + "producing valuable food";
                     $("#animal-container").prepend("<img alt='chicken' id='chicken' class='animal' src='styles/chicken.png'/>");
+                    $("#chicken").click(function() {
+                      var src = $(this).attr("src");
+                      var newsrc = 'styles/chicken2.png';
+                      $(this).attr("src", newsrc);
+                    });
+
                     this.eggsProduced = function(eggs) {
                         this.info.diary = this.info.name + " produced " + eggs + " eggs today!";
                     };
@@ -154,9 +147,14 @@ $(document).ready(function() {
                 if (this.info.species === "sloth") {
                     this.info.specialAbilities = this.info.specialAbilities + "hanging";
                     $("#animal-container").prepend("<img alt='sloth' id='sloth' class='animal' src='styles/sloth.png'/>");
+                    $("#sloth").click(function() {
+                      var src = $(this).attr("src");
+                      var newsrc = 'styles/slothfall.png';
+                      $(this).attr("src", newsrc);
+                    });
+
                     this.limbsClimbed = function(limbsClimbed) {
                         this.info.diary = this.info.name + " climbed " + limbsClimbed + " limbs today!";
-
                     };
                     this.limbsClimbed(limbsClimbed);
                 }
@@ -209,12 +207,12 @@ $(document).ready(function() {
         console.log(miso);
 
         var liz = new Animal("chameleon", "liz", "2005-11-24");
-liz.info.temperament = "phlegmatic";
-liz.init();
-liz.chameleon(5, 4);
-liz.toString();
-console.log(liz.toString());
-console.log(liz);
+        liz.info.temperament = "phlegmatic";
+        liz.init();
+        liz.chameleon(5, 4);
+        liz.toString();
+        console.log(liz.toString());
+        console.log(liz);
 
         // error catching example
 

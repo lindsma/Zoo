@@ -43,12 +43,13 @@ body {
 
     div#animal-container {
       display: flex;
-      margin-top: 170px;
+      margin-top: 200px;
       margin-left: 20%;
 
       img.animal {
         height: 200px;
         align-self: center;
+        z-index: 5;
       }
 
     }
@@ -62,5 +63,6 @@ body {
         width: 100%;
         background-image: url("grass.png");
         height: 250px;
+
     }
 }
