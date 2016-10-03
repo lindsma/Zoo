@@ -6,21 +6,42 @@
 body {
   height: 100%;
   background: lightblue; }
-
-div.container {
-  display: flex; }
-  div.container img.cloud {
-    width: 500px;
-    height: 200px;
-    margin: 0 auto;
-    align-self: center; }
-
-footer.grass {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-image: url("grass.png");
-  height: 300px; }
+  body nav {
+    height: 50px;
+    background: #333;
+    margin-bottom: 10px; }
+    body nav h4 {
+      color: #fff;
+      font-size: 18px;
+      font-family: verdana;
+      padding-top: 16px;
+      display: inline-block;
+      margin-left: 20px; }
+    body nav button {
+      float: right;
+      height: 30px;
+      margin-top: 10px;
+      margin-right: 20px; }
+  body div.cloud-container {
+    display: flex; }
+    body div.cloud-container img.cloud {
+      width: 500px;
+      height: 150px;
+      margin: 0 auto;
+      align-self: center; }
+  body div#animal-container {
+    display: flex;
+    margin-top: 170px;
+    margin-left: 20%; }
+    body div#animal-container img.animal {
+      height: 200px;
+      align-self: center; }
+  body footer.grass {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-image: url("grass.png");
+    height: 250px; }
 
 /*# sourceMappingURL=main.css.map */

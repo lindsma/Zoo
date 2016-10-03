@@ -5,25 +5,62 @@
 }
 
 body {
-  height: 100%;
-  background: lightblue;
-}
-div.container {
-    display: flex;
+    height: 100%;
+    background: lightblue;
 
-    img.cloud {
-      width: 500px;
-        height: 200px;
-        margin: 0 auto;
-        align-self: center;
+    nav {
+      height: 50px;
+      background: #333;
+      margin-bottom: 10px;
+
+      h4 {
+        color: #fff;
+        font-size: 18px;
+        font-family: verdana;
+        padding-top: 16px;
+        display: inline-block;
+        margin-left: 20px;
+      }
+
+      button {
+        float: right;
+        height: 30px;
+        margin-top: 10px;
+        margin-right: 20px;
+      }
     }
-}
 
-footer.grass {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-image: url("grass.png");
-  height: 300px;
+    div.cloud-container {
+        display: flex;
+
+        img.cloud {
+            width: 500px;
+            height: 150px;
+            margin: 0 auto;
+            align-self: center;
+        }
+    }
+
+    div#animal-container {
+      display: flex;
+      margin-top: 170px;
+      margin-left: 20%;
+
+      img.animal {
+        height: 200px;
+        align-self: center;
+      }
+
+    }
+
+
+
+    footer.grass {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-image: url("grass.png");
+        height: 250px;
+    }
 }
