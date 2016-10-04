@@ -4,8 +4,12 @@
   box-sizing: border-box; }
 
 body {
-  height: 100%;
-  background: lightblue; }
+  min-height: 800px;
+  background: lightblue;
+  margin-bottom: 300px; }
+  @media only screen and (max-width: 690px) {
+    body {
+      min-height: 1150px; } }
   body nav {
     height: 50px;
     background: #333;
@@ -22,27 +26,79 @@ body {
       height: 30px;
       margin-top: 10px;
       margin-right: 20px; }
-  body div.cloud-container {
-    display: flex; }
-    body div.cloud-container img.cloud {
-      width: 500px;
-      height: 150px;
-      margin: 0 auto;
-      align-self: center; }
-  body div#animal-container {
-    display: flex;
-    margin-top: 200px;
-    margin-left: 20%; }
-    body div#animal-container img.animal {
-      height: 200px;
-      align-self: center;
-      z-index: 5; }
-  body footer.grass {
-    position: fixed;
-    left: 0;
-    bottom: 0;
+  @media only screen and (max-width: 860px) {
+    body div#animal-container {
+      margin-left: 11%; } }
+  body div#animal-container div.animal {
+    height: 270px;
+    width: 150px;
+    border: 2px solid #333;
+    background: #fff;
+    margin: 2%;
+    border-radius: 10px;
+    font-family: verdana;
+    float: left; }
+  body div#animal-container img.animal {
+    height: 128px;
+    padding: 5px 10px 0;
+    z-index: 5; }
+  body div#animal-container hr {
+    width: 80%; }
+  body div#animal-container h3 {
+    font-weight: bold;
+    font-size: 16px;
+    color: #333;
     width: 100%;
-    background-image: url("grass.png");
-    height: 250px; }
+    padding-bottom: 15px;
+    text-align: center; }
+  body div#animal-container ul {
+    margin-left: 10px;
+    font-size: 12px;
+    list-style: none;
+    width: 100%; }
+    body div#animal-container ul li {
+      padding-bottom: 5px;
+      width: 100%; }
+  body footer.add-animal {
+    height: 50px;
+    background: lightgrey;
+    border-top: 3px solid #333;
+    border-bottom: 3px solid #333;
+    font-family: verdana;
+    padding-top: 8px;
+    clear: left;
+    position: fixed;
+    bottom: 0;
+    width: 100%; }
+    @media only screen and (max-width: 860px) {
+      body footer.add-animal {
+        height: 90px; } }
+    @media only screen and (max-width: 690px) {
+      body footer.add-animal {
+        height: 180px; } }
+    body footer.add-animal h3 {
+      font-weight: bold;
+      font-size: 20px;
+      padding-left: 20px;
+      display: inline;
+      padding-top: 15px; }
+    body footer.add-animal form {
+      display: inline;
+      float: right;
+      padding-right: 20px; }
+      @media only screen and (max-width: 860px) {
+        body footer.add-animal form {
+          padding-top: 10px; } }
+      @media only screen and (max-width: 690px) {
+        body footer.add-animal form {
+          float: left;
+          padding-left: 20px; } }
+      @media only screen and (max-width: 690px) {
+        body footer.add-animal form label {
+          display: block; } }
+    body footer.add-animal #submit-button {
+      background: #333;
+      color: #fff;
+      height: 30px; }
 
 /*# sourceMappingURL=main.css.map */

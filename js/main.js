@@ -12,6 +12,25 @@ $(document).ready(function() {
     (function() {
 
         Animal.prototype = {
+            buildMe: function() {
+                // add animal div
+                $("#animal-container").append("<div class='animal " + this.info.name + "'>" + "</div>");
+                // add animal image and horizontal rule
+                $("." + this.info.name).append("<img alt=" + this.info.species + " id=" + this.info.species + " class='animal'" + " src='styles/my-icons-collection/png/" + this.info.species + ".png'/><hr>");
+                // add animal name
+                $("." + this.info.name).append("<h3 class='name'>" + this.info.name + "</h3>");
+                // add ul for animal bio
+                $("." + this.info.name).append("<ul class = " + this.info.name + " ></ul>");
+                // add animal species
+                $("ul." + this.info.name).append("<li class='species'>" + "species: " + this.info.species + "</li>");
+                // add animal class
+                $("ul." + this.info.name).append("<li class='class'>" + "class: " + this.info.class + "</li>");
+                // add animal age
+                $("ul." + this.info.name).append("<li class='age'>" + "age: " + this.info.age + "</li>");
+                // add delivery type
+                $("ul." + this.info.name).append("<li class='delivery-type'>" + "delivery: " + this.info.deliveryType + "</li>");
+
+            },
 
             // calculate age from DOB
 
@@ -24,7 +43,7 @@ $(document).ready(function() {
                 // try/catch for age
 
                 try {
-                    if (this.info.age === "" || isNaN(this.info.age)) throw "Age ain't nothin' but a number.";
+                    if (this.info.age === "" || this.info.age === "NaN years") throw "Age ain't nothin' but a number.";
                 } catch (err) {
                     this.info.age = err;
                 }
@@ -51,7 +70,6 @@ $(document).ready(function() {
                 } catch (err) {
                     this.info.class = err;
                 }
-
             },
 
             // determine birth or lay eggs
@@ -78,11 +96,16 @@ $(document).ready(function() {
                 this.calcAge();
                 this.findClass();
                 this.delivery();
+                this.buildMe();
             }
         };
 
 
         function Animal(species, name, dob) {
+
+            $('form').submit(function(event) {
+                event.preventDefault();
+            });
 
             // basic animal info setup
             this.info = {
@@ -100,11 +123,10 @@ $(document).ready(function() {
             this.chicken = function(eggs) {
                 if (this.info.species === "chicken") {
                     this.info.specialAbilities = this.info.specialAbilities + "producing valuable food";
-                    $("#animal-container").prepend("<img alt='chicken' id='chicken' class='animal' src='styles/chicken.png'/>");
                     $("#chicken").click(function() {
-                      var src = $(this).attr("src");
-                      var newsrc = 'styles/chicken2.png';
-                      $(this).attr("src", newsrc);
+                        var src = $(this).attr("src");
+                        var newsrc = 'styles/chicken2.png';
+                        $(this).attr("src", newsrc);
                     });
 
                     this.eggsProduced = function(eggs) {
@@ -119,7 +141,6 @@ $(document).ready(function() {
             this.chameleon = function(milesPerHour, hours) {
                 if (this.info.species === "chameleon") {
                     this.info.specialAbilities = this.info.specialAbilities + "slithering";
-                    $("#animal-container").prepend("<img alt='chameleon' id='chameleon' class='animal' src='styles/chameleon.png'/>");
                     this.travelDistance = function(milesPerHour, hours) {
                         var distance = milesPerHour * hours;
                         this.info.diary = this.info.name + " travelled " + distance + " miles today!";
@@ -133,7 +154,6 @@ $(document).ready(function() {
             this.bushbaby = function(timesEyesRolled) {
                 if (this.info.species === "bushbaby") {
                     this.info.specialAbilities = this.info.specialAbilities + "staring";
-                    $("#animal-container").prepend("<img alt='bushbaby' id='bushbaby' class='animal' src='styles/bushbaby.png'/>");
                     this.eyesRolled = function(timesEyesRolled) {
                         this.info.diary = this.info.name + " rolled her eyes " + timesEyesRolled + " times today!";
                     };
@@ -146,11 +166,10 @@ $(document).ready(function() {
             this.sloth = function(limbsClimbed) {
                 if (this.info.species === "sloth") {
                     this.info.specialAbilities = this.info.specialAbilities + "hanging";
-                    $("#animal-container").prepend("<img alt='sloth' id='sloth' class='animal' src='styles/sloth.png'/>");
                     $("#sloth").click(function() {
-                      var src = $(this).attr("src");
-                      var newsrc = 'styles/slothfall.png';
-                      $(this).attr("src", newsrc);
+                        var src = $(this).attr("src");
+                        var newsrc = 'styles/slothfall.png';
+                        $(this).attr("src", newsrc);
                     });
 
                     this.limbsClimbed = function(limbsClimbed) {
@@ -168,57 +187,57 @@ $(document).ready(function() {
 
             };
 
-            // try/catch for Special Abilities
-
-            try {
-                if (this.info.specialAbilities === "") throw this.info.name + " doesn't have any special abilities :(";
-            } catch (err) {
-                this.info.specialAbilities = err;
-            }
-
         }
 
         // create two species minimum
 
-        var margot = new Animal("sloth", "margot", "1987-11-12");
-        margot.info.toes = 3;
-        margot.info.temperament = "phlegmatic";
-        margot.init();
-        margot.sloth(5);
-        margot.toString();
-        console.log(margot.toString());
-        console.log(margot);
 
-        var endive = new Animal("chicken", "endive", "2010-02-15");
-        endive.info.breed = "andalusian";
-        endive.info.spots = true;
-        endive.init();
-        endive.chicken(4);
-        endive.toString();
-        console.log(endive.toString());
-        console.log(endive);
+        var promise = $.get('data/animals.json');
 
-        var miso = new Animal("bushbaby", "miso", "1995-03-14");
-        miso.info.temperament = "choleric";
-        miso.init();
-        miso.bushbaby(6);
-        miso.toString();
-        console.log(miso.toString());
-        console.log(miso);
-
-        var liz = new Animal("chameleon", "liz", "2005-11-24");
-        liz.info.temperament = "phlegmatic";
-        liz.init();
-        liz.chameleon(5, 4);
-        liz.toString();
-        console.log(liz.toString());
-        console.log(liz);
-
-        // error catching example
-
-        var frank = new Animal("chupacabra", "frank");
-        frank.init();
-        console.log(frank);
+        promise.then(function(sloth) {
+            var margot = new Animal(sloth.animals[0].species, sloth.animals[0].name, sloth.animals[0].dob);
+            margot.init();
+            margot.info.toes = 3;
+            margot.info.temperament = "phlegmatic";
+            margot.sloth(5);
+            margot.toString();
+            return promise;
+        }).then(function(chicken) {
+            console.log(chicken);
+            var endive = new Animal(chicken.animals[1].species, chicken.animals[1].name, chicken.animals[1].dob);
+            endive.info.breed = "andalusian";
+            endive.info.spots = true;
+            endive.init();
+            endive.chicken(4);
+            endive.toString();
+            return promise;
+        }).then(function(chameleon) {
+            var liz = new Animal(chameleon.animals[2].species, chameleon.animals[2].name, chameleon.animals[2].dob);
+            liz.info.temperament = "phlegmatic";
+            liz.init();
+            liz.chameleon(5, 4);
+            liz.toString();
+            return promise;
+        }).then(function(bushbaby) {
+            var miso = new Animal(bushbaby.animals[3].species, bushbaby.animals[3].name, bushbaby.animals[3].dob);
+            miso.info.temperament = "choleric";
+            miso.init();
+            miso.bushbaby(6);
+            miso.toString();
+            return promise;
+        }).then(function(panda) {
+            var hector = new Animal(panda.animals[4].species, panda.animals[4].name, panda.animals[4].dob);
+            hector.init();
+            hector.toString();
+            return promise;
+        }).then(function(otter) {
+            var otis = new Animal(otter.animals[5].species, otter.animals[5].name, otter.animals[5].dob);
+            otis.init();
+            otis.toString();
+            return promise;
+        }).catch(function(error) {
+            console.log("error");
+        });
 
 
     })();

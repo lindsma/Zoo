@@ -3,66 +3,136 @@
 *:before {
     box-sizing: border-box;
 }
+@import "partials/mixins";
 
 body {
-    height: 100%;
+    min-height: 800px;
     background: lightblue;
-
-    nav {
-      height: 50px;
-      background: #333;
-      margin-bottom: 10px;
-
-      h4 {
-        color: #fff;
-        font-size: 18px;
-        font-family: verdana;
-        padding-top: 16px;
-        display: inline-block;
-        margin-left: 20px;
-      }
-
-      button {
-        float: right;
-        height: 30px;
-        margin-top: 10px;
-        margin-right: 20px;
-      }
+    margin-bottom: 300px;
+    
+    @include media(tablet) {
+        min-height: 1150px;
     }
 
-    div.cloud-container {
-        display: flex;
+    nav {
+        height: 50px;
+        background: #333;
+        margin-bottom: 10px;
 
-        img.cloud {
-            width: 500px;
-            height: 150px;
-            margin: 0 auto;
-            align-self: center;
+        h4 {
+            color: #fff;
+            font-size: 18px;
+            font-family: verdana;
+            padding-top: 16px;
+            display: inline-block;
+            margin-left: 20px;
+        }
+
+        button {
+            float: right;
+            height: 30px;
+            margin-top: 10px;
+            margin-right: 20px;
         }
     }
 
     div#animal-container {
-      display: flex;
-      margin-top: 200px;
-      margin-left: 20%;
+        @include media(desktop) {
+            margin-left: 11%;
+        }
 
-      img.animal {
-        height: 200px;
-        align-self: center;
-        z-index: 5;
-      }
+        div.animal {
+            height: 270px;
+            width: 150px;
+            border: 2px solid #333;
+            background: #fff;
+            margin: 2%;
+            border-radius: 10px;
+            font-family: verdana;
+            float: left;
+        }
 
+        img.animal {
+            height: 128px;
+            padding: 5px 10px 0;
+            z-index: 5;
+        }
+
+        hr {
+            width: 80%;
+        }
+
+        h3 {
+            font-weight: bold;
+            font-size: 16px;
+            color: #333;
+            width: 100%;
+            padding-bottom: 15px;
+            text-align: center;
+        }
+
+        ul {
+            margin-left: 10px;
+            font-size: 12px;
+            list-style: none;
+            width: 100%;
+
+            li {
+                padding-bottom: 5px;
+                width: 100%;
+            }
+        }
     }
 
-
-
-    footer.grass {
+    footer.add-animal {
+        height: 50px;
+        background: lightgrey;
+        border-top: 3px solid #333;
+        border-bottom: 3px solid #333;
+        font-family: verdana;
+        padding-top: 8px;
+        clear: left;
         position: fixed;
-        left: 0;
         bottom: 0;
         width: 100%;
-        background-image: url("grass.png");
-        height: 250px;
+        @include media(desktop) {
+            height: 90px;
+        }
+        @include media(tablet) {
+            height: 180px;
+        }
 
+        h3 {
+            font-weight: bold;
+            font-size: 20px;
+            padding-left: 20px;
+            display: inline;
+            padding-top: 15px;
+        }
+
+        form {
+            display: inline;
+            float: right;
+            padding-right: 20px;
+            @include media(desktop) {
+                padding-top: 10px;
+            }
+            @include media(tablet) {
+                float: left;
+                padding-left: 20px;
+            }
+
+            label {
+                @include media(tablet) {
+                    display: block;
+                }
+            }
+        }
+
+        #submit-button {
+            background: #333;
+            color: #fff;
+            height: 30px;
+        }
     }
 }

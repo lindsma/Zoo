@@ -1,0 +1,30 @@
+{
+    "animals": [{
+            "species": "sloth",
+            "dob": "1987-11-12",
+            "name": "margot"
+        }, {
+            "species": "chicken",
+            "dob": "2010-02-15",
+            "name": "endive"
+        }, {
+            "species": "chameleon",
+            "dob": "2005-11-24",
+            "name": "liz"
+
+        }, {
+            "species": "bushbaby",
+            "dob": "1995-03-14",
+            "name": "miso"
+        }, {
+            "species": "panda",
+            "dob": "2003-03-22",
+            "name": "hector"
+        }, {
+            "species": "otter",
+            "dob": "1997-10-31",
+            "name": "otis"
+        }
+
+    ]
+}
